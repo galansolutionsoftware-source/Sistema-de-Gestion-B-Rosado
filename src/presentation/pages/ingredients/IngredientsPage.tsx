@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { Plus, Pencil, Trash2, FlaskConical, BookOpen, X, Search, Printer, Edit2 } from 'lucide-react';
@@ -391,7 +391,6 @@ const RecipeSheetsTab: React.FC = () => {
   const [details, setDetails]         = useState<{ insumo_id: string; gramaje_neto_por_racion: number }[]>([
     { insumo_id: '', gramaje_neto_por_racion: 0 },
   ]);
-  const [printModal, setPrintModal]   = useState<{ recipe: RecipeSheet | null; all: boolean } | null>(null);
 
   const { data: ingredients = [] } = useQuery({
     queryKey: ['ingredients', currentClient?.id],

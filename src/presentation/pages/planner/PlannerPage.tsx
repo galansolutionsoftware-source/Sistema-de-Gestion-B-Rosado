@@ -116,7 +116,7 @@ export const PlannerPage: React.FC = () => {
   // Permite múltiples platos por franja/día
   const getEntries = (dayStr: string, slotName: string): MenuPlanning[] =>
     plannings.filter(
-      p => p.fecha === dayStr && p.franja_nombre === slotName,
+      p => toLocalDateStr(new Date(p.fecha)) === dayStr && p.franja_nombre === slotName,
     );
 
   const openAdd = (dayStr: string, slotName: string) => {
